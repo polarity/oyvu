@@ -1,0 +1,165 @@
+/* import some stuff */
+@import (less) "reset.less";
+
+@import url(http://api.tiles.mapbox.com/mapbox.js/v1.0.2/mapbox.css); // needed for the map script
+@import url(http://fonts.googleapis.com/css?family=Bitter:400,700);
+
+/* define some variables we use later */
+@vspace: 1.5em;
+@hspace: 1%;
+
+@color1: #4298be;
+@color2: #23905d;
+@color3: #fff;
+@color4: #fef8e1;
+@color5: #99250b;
+
+/* basic stuff yea */
+body {
+  font-family: "Bitter", "Helvetica", "Arial", "sans-serif";
+  line-height: @vspace;
+  min-width: 350px;
+  font-size: 0.7em;
+}
+a { color: @color1; }
+p { line-height: @vspace; }
+
+header {
+  width: 100%;
+  background-color: @color1;
+}
+
+header .logo {
+  text-align: center;
+  padding: @vspace/4 @hspace;
+  margin: 0 auto;
+  svg {
+    width:40%;
+  }
+}
+
+/* CatBrief Section*/
+.catbrief {
+  .catpic{
+    text-align: center;
+    padding: @vspace @hspace*4;
+    background-color: @color2;
+    img, svg {
+      width:40%;
+    }
+  }
+  &.lost .catpic {
+    background-color: @color5;
+  }
+  .catstatus {
+    p {
+      display: inline-block;
+      margin: 0 auto;
+      max-width: 500px;
+    }
+    padding: 0 @hspace*8 @vspace @hspace*8;
+    font-size: 2em;
+    font-weight: 400;
+    line-height: @vspace;
+    color: @color3;
+    text-align: center;
+    background-color: @color2;
+  }
+  &.lost .catstatus {
+    background-color: @color5;
+  }
+  .catmap {
+    padding: @vspace*4 @hspace*8;
+    height: @vspace*4;
+    text-align: center;
+    a.btn {
+      display: none;
+      position: relative;
+      z-index: 1;
+    }
+  }
+  h2 {
+    font-weight: 400;
+    background-color: @color1;
+    font-size: 1.4em;
+    padding:@vspace/2 @hspace;
+    text-align: center;
+    color: @color3;
+  }
+  address {
+    font-size: @vspace;
+    line-height: @vspace;
+    text-align: center;
+    padding: @vspace @hspace*2;
+  }
+  .ownermessage {
+    padding:@vspace @hspace*8;
+    .notice {
+      margin: 0 auto;
+      max-width: 800px;
+      font-size: 1.5em;
+      padding:@vspace @hspace*8;
+      background-color: @color4;
+      position: relative;
+      .owner{
+        color: @color1;
+        font-weight:bold;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 0;
+        border-left: 30px solid darken(@color4, 10%);
+        border-bottom: 30px solid white;
+        border-right: 0;
+      }
+    }
+  }
+}
+.debug {
+  text-align: center;
+}
+
+/* a button */
+a.btn {
+  text-decoration: none;
+  display: inline;
+  background-color: @color2;
+  color: @color3;
+  border-radius: 0.2em;
+  padding: @vspace/48 @hspace;
+  border-bottom: 2px solid darken(@color2, 20%);
+}
+.lost a.btn {
+  background-color: @color5;
+  border-bottom: 2px solid darken(@color5, 20%);
+}
+
+/* make the button big */
+a.btn.big {
+  display: inline-block;
+  position: relative;
+  top: 13px;
+  text-transform: uppercase;
+  font-size: 2em;
+  padding: @vspace/2 @hspace*4;
+  border-bottom: 4px solid darken(@color2, 20%);
+}
+.lost a.btn.big {
+  border-bottom: 4px solid darken(@color5, 20%);
+}
+
+a.btn:hover {
+  background-color: darken(@color2, 10%);
+  border-top: 4px solid @color2;
+  border-bottom: 0px;
+}
+.lost a.btn:hover {
+  background-color: darken(@color5, 10%);
+  border-top: 4px solid @color5;
+}
